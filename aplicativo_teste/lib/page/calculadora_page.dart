@@ -12,39 +12,69 @@ class CalculadoraPage extends StatefulWidget {
 class _CalculadoraPageState extends State<CalculadoraPage> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text("Calculadora IMC"),
         centerTitle: true,
       ),
       body: Column(
         children: [
-          Expanded(child: Row(
+          Expanded(
+              child: Row(
             children: [
-              Expanded(child: CustomCard(
+              Expanded(
+                  child: CustomCard(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.male,size: 90,),
-                    Text("Masculino",style: labelTextStyle,),
+                    Icon(
+                      Icons.male,
+                      size: 90,
+                    ),
+                    Text(
+                      "Masculino",
+                      style: labelTextStyle,
+                    ),
                   ],
                 ),
               )),
-              Expanded(child: CustomCard(
+              Expanded(
+                  child: CustomCard(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.female,size: 90,),
-                    Text("Feminino",style: labelTextStyle,),
+                    Icon(
+                      Icons.female,
+                      size: 90,
+                    ),
+                    Text(
+                      "Feminino",
+                      style: labelTextStyle,
+                    ),
                   ],
                 ),
               )),
             ],
           )),
           Expanded(child: CustomCard()),
-          Expanded(child:  Row(
+          Expanded(
+              child: Row(
             children: [
-              Expanded(child: CustomCard()),
+              Expanded(
+                  child: CustomCard(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                     Text(
+                      "WEIGHT",
+                      style: labelTextStyle,
+                    ),Icon(
+                      Icons.male,
+                      size: 90,
+                    ),
+                  ],
+                ),
+              )),
               Expanded(child: CustomCard()),
             ],
           )),

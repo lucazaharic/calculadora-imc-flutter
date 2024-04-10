@@ -4,10 +4,10 @@ class CalculadoraPage extends StatefulWidget {
   const CalculadoraPage({super.key});
 
   @override
-  State<CalculadoraPage> createState() => _MyWidgetState();
+  State<CalculadoraPage> createState() => _CalculadoraPageState();
 }
 
-class _MyWidgetState extends State<CalculadoraPage> {
+class _CalculadoraPageState extends State<CalculadoraPage> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();

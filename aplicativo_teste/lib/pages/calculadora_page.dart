@@ -20,6 +20,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
   int generoSelecionado = 0;
   bool isActiveFem = false;
   bool isActiveMasc = false;
+  int altura = 120;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +78,14 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
           ),
           Expanded(
             child: CustomCard(
-              child: SliderAltura(),
+              child: SliderAltura(
+                altura: altura,
+                onChanged: (double novaAltura) {
+                  setState(() {
+                    altura = novaAltura.toInt();
+                  });
+                },
+              ),
             ),
           ),
           Expanded(

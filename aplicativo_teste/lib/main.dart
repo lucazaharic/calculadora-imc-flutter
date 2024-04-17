@@ -1,7 +1,6 @@
-import 'package:aplicativo_teste/page/calculadora_page.dart';
-import 'package:flutter/material.dart';
-
 import 'constants.dart';
+import 'pages/calculadora_page.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());

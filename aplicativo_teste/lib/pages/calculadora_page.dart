@@ -16,6 +16,10 @@ class CalculadoraPage extends StatefulWidget {
 }
 
 class _CalculadoraPageState extends State<CalculadoraPage> {
+  //MASCULINO = 1 FEMININO = 2
+  int generoSelecionado = 0;
+  bool isActiveFem = false;
+  bool isActiveMasc = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,26 +27,48 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
         title: const Text('Calculadora IMC'),
         centerTitle: true,
       ),
-      body: const Column(
+      body: Column(
         children: [
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: CustomCard(
-                    active: false,
-                    child: GenderContent(
-                      icon: Icons.male,
-                      label: 'Masculino',
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        generoSelecionado = 1;
+                        if (generoSelecionado == 1) {
+                          isActiveMasc = true;
+                          isActiveFem = false;
+                        }
+                      });
+                    },
+                    child: CustomCard(
+                      active: isActiveMasc,
+                      child: GenderContent(
+                        icon: Icons.male,
+                        label: 'Masculino',
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: CustomCard(
-                    active: true,
-                    child: GenderContent(
-                      icon: Icons.female,
-                      label: 'Feminino',
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        generoSelecionado = 2;
+                        if (generoSelecionado == 2) {
+                          isActiveFem = true;
+                          isActiveMasc = false;
+                        }
+                      });
+                    },
+                    child: CustomCard(
+                      active: isActiveFem,
+                      child: GenderContent(
+                        icon: Icons.female,
+                        label: 'Feminino',
+                      ),
                     ),
                   ),
                 ),
@@ -50,20 +76,27 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
             ),
           ),
           Expanded(
-            child: CustomCard(),
+            child: CustomCard(
+              child: SliderAltura(),
+            ),
           ),
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: CustomCard(),
+                  child: CustomCard(
+                    child: Contador(),
+                  ),
                 ),
                 Expanded(
-                  child: CustomCard(),
+                  child: CustomCard(
+                    child: Contador(),
+                  ),
                 ),
               ],
             ),
           ),
+          BottomButton(buttonTitle: "Calcular IMC")
         ],
       ),
     );
